@@ -1,0 +1,270 @@
+/* 
+Quiz4
+*/
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js");
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
+//variables
+$main-color: #05a081;
+$text-color: #fff;
+$bg-color: #eee;
+$bg-color-2: #333;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    // font-family: 'Nunito', sans-serif;
+    // font-size: 18px;
+    font: {
+        family: "Nunito", sans-serif;
+        size: 18px;
+    }
+}
+
+header {
+    width: 100%;
+    position: absolute; /* absolute */
+    background: transparent;
+    z-index: 10;
+}
+
+.header-grid {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.logo {
+    color: $text-color;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.banner {
+    // background-image: url(../images/background.jpg);
+    // background-size: cover;
+    background: {
+        image: url(../images/background.jpg);
+        size: cover;
+        position: center;
+    }
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    z-index: 1;
+}
+.banner-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    //margin: auto;
+    //top:40%;
+
+    display: grid;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.banner-text-items {
+    color: $text-color;
+    text-align: center !important;
+    margin: auto;
+    width: 50%;
+}
+.banner-text-items h2 {
+    font-size: 3rem;
+}
+
+.banner::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+// navigation
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-around;
+    text-align: center;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        justify-content: space-between;
+        text-align: center;
+        transition: max-height 0.3s;
+    }
+    li {
+        list-style: none;
+        padding: 1em 0;
+    }
+    a {
+        text-decoration: none;
+        color: $text-color;
+        //display: inline-block;
+        padding: 1.4em 2em;
+    }
+}
+
+nav ul {
+    display: grid;
+}
+
+button {
+    margin-top: 0 !important;
+}
+
+#toggle {
+    display: none;
+}
+
+.label {
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+    width: 30px;
+    float: right;
+    color: white;
+}
+
+// .button{
+//     background-color: white;
+//     transition: 0.3s all ease;
+//     padding: 12px 30px;
+//     margin-top: 1em;
+//     text-transform: uppercase;
+//     letter-spacing: 0.15em;
+//     color: white;
+//     border: 1px solid white;
+//     cursor:pointer;
+//     box-shadow: 05px 10px rgba(0, 0, 0, 0.6);
+// }
+
+// custom css
+.padding {
+    padding: 4rem 0;
+}
+.bg-color {
+    background-color: $bg-color-2;
+    overflow: hidden;
+}
+
+main {
+    background-color: $bg-color;
+}
+
+// .sideleft{
+//     width: 30%;
+//     float: left;
+// }
+// .sideright{
+//     width: 60%;
+//     float: right;
+// }
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+}
+
+.btn {
+    background: $main-color;
+    padding: 0.6em 2em;
+    color: $text-color;
+    /* box-shadow: horizontal vertical blur-radius color; */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    border-radius: 25px;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.box {
+    // width: 30%;
+    // float: left;
+    padding: 2em;
+    text-align: center;
+    color: $text-color;
+}
+.box .fas {
+    font-size: 2em;
+}
+footer {
+    width: 100%;
+    text-align: center;
+}
+// social media
+.social {
+    width: 50px;
+    position: fixed;
+    top: 65%;
+    left: 1%;
+}
+.social i {
+    display: block;
+    width: 40px;
+    font-size: 1.4em;
+    cursor: pointer;
+    padding: 2px;
+}
+
+@media (max-width: 992px) {
+    .label {
+        display: block;
+        cursor: pointer;
+    }
+    nav ul {
+        text-align: center;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        margin: 0 auto;
+        top: 5.6em;
+        width: 80%;
+        left: 10%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8);
+        max-height: 0;
+        overflow: hidden;
+    }
+    nav a {
+        opacity: 1;
+    }
+    #toggle:checked + .menu {
+        max-height: 300px;
+    }
+    header > div.logo {
+        float: left;
+        padding: 1em 0.5em 0.5em 0.5em;
+    }
+    .menu a {
+        display: block;
+        margin: 0;
+    }
+    button {
+        width: 100%;
+        text-align: center;
+        margin: 0.8em 0 0.8em 0;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+        margin: 0.8em 0 0.8em 0;
+    }
+    button {
+        margin-top: 1em !important;
+    }
+}
